@@ -1,0 +1,154 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  background: #e6e6e6;
+  min-height: 100vh;
+  margin: 0;
+}
+.main-content {
+  display: flex;
+  width: fit-content;
+  gap: 30px;
+}
+.control-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 15px;
+  font-weight: bold;
+  background-color: darkgray;
+}
+.control-panel__item:not(:last-child) {
+  border-bottom: 1px solid gray;
+}
+.control-panel__item__desc {
+  margin-bottom: 10px;
+}
+.building {
+  display: flex;
+  min-height: 95vh;
+}
+.elevators {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 91vh;
+  border-right: solid 2px rgb(0, 0, 0);
+  background: #333333;
+  padding: 3px;
+}
+.floors {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  border-right: 2px solid black;
+}
+.floor {
+  position: relative;
+  background: rgb(255, 255, 255);
+  width: 100px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 2px black solid;
+  padding: 10px;
+}
+.floor:last-child {
+  border-top: 2px black solid;
+}
+.floor__sign {
+  position: absolute;
+  text-align: center;
+  width: fit-content;
+  padding: 3px;
+  background: #000000;
+  border: solid 2px #878787;
+  color: rgb(255, 255, 255);
+  top: 5px;
+  right: 5px;
+  box-sizing: border-box;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+/* elevator*/
+.elevator-cab {
+  min-width: 70px;
+  border: solid 1px gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin-right: 10px;
+  background: #525151;
+}
+.elevator-cab:last-child {
+  margin-right: 0;
+}
+.elevator-cab_up {
+  box-shadow: 0 3px 3px #450505;
+}
+.elevator-cab_down {
+  box-shadow: 0 -3px 3px #450505;
+}
+.elevator-cab_rest {
+  animation: restOpacity 0.8s ease infinite;
+}
+.elevator-cab__direction {
+  height: 75%;
+  width: 75%;
+}
+.elevator-cab_up .elevator-cab__direction {
+  transform: rotate(180deg);
+}
+.elevator-cab__destination {
+  font-size: 18px;
+}
+
+@keyframes restOpacity {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*Button elevator*/
+
+.floor__button {
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 2px rgb(0, 0, 0);
+  transition: box-shadow ease 0.3s;
+  background-color: rgb(255, 255, 255);
+}
+.floor__button_pressed {
+  background: #9b1313;
+  box-shadow: 0 0 8px #9b1313;
+  border: solid 2px #450505;
+  color: white;
+}
+.floor__button:hover {
+  box-shadow: 0 0 3px rgb(0, 0, 0);
+}
